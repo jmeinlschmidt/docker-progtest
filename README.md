@@ -30,7 +30,7 @@ $ docker exec -it progtest /bin/bash
 
 ## Mounting volumes
 
-Keep on mind host os permissions (especcialy in MacOS).
+Keep on mind host os permissions (especially in MacOS).
 
 ```
 $ docker run --name progtest -td -v <HOST_OS_LOCATION>/data:/root/data jmeinlschmidt/progtest:latest
@@ -53,7 +53,7 @@ Requirements:
 
 After installing just hit *Remote explorer* in the sidebar menu and attaching to running container.
 
-![Example of attached VS Code environment](./image-vscode-1.png)
+![Example of attached VS Code environment](https://github.com/jmeinlschmidt/docker-progtest/blob/master/image-vscode-1.png)
 
 The terminal is working natively as well.
 

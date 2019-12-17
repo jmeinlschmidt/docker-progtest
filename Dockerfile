@@ -14,6 +14,7 @@ RUN apt-get update &&\
         less \
         gdb \
         openssh-server \
+        file \
         valgrind -y &&\
     apt-get update
 

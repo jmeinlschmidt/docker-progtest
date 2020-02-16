@@ -1,5 +1,8 @@
 FROM debian:latest
 
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
 COPY config/profile.sh /etc/profile.d/profile.sh
 COPY config/profile.sh /root/.bashrc
 COPY config/profile.sh /root/.bash_profile

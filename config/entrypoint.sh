@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+# Entrypoint get executed at any launch of the container
+
+# Create .vimrc if doesn't exist (important config is stored globally in /etc/vim/vimrc.local)
+[[ -e /root/.vimrc ]] || echo "\"set nolist" >/root/.vimrc
+
 if getent passwd "$1" >/dev/null 2>&1; then
     printf "\n\033[0;44m---> User already exists\033[0m\n"
 else
@@ -17,6 +22,9 @@ else
     echo "$1 ALL=NOPASSWD:/usr/sbin/deluser" >> /etc/sudoers
     echo "$1 ALL=NOPASSWD:/usr/sbin/chpasswd" >> /etc/sudoers
     echo "$1 ALL=NOPASSWD:/bin/bash" >> /etc/sudoers
+
+    # Create .vimrc if doesn't exist
+    [[ -e /home/$1/.vimrc ]] || echo "\"set nolist" >/home/$1/.vimrc
 fi
  
 printf "\n\033[0;44m---> Starting the SSH server.\033[0m\n"

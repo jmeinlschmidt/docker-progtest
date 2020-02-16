@@ -1,5 +1,8 @@
 FROM debian:latest
 
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
 COPY config/profile.sh /etc/profile.d/profile.sh
 COPY config/profile.sh /root/.bashrc
 COPY config/profile.sh /root/.bash_profile
@@ -13,6 +16,8 @@ RUN apt-get update &&\
         nano \
         less \
         gdb \
+        wget \
+        ca-certificates \
         openssh-server \
         file \
         valgrind -y &&\
@@ -20,6 +25,7 @@ RUN apt-get update &&\
 
 COPY config/ssh_config /etc/ssh/ssh_config
 COPY config/sshd_config /etc/ssh/sshd_config
+COPY config/vimconfig /etc/vim/vimrc.local
 
 COPY config/entrypoint.sh /usr/local/bin/entrypoint.sh
 

@@ -82,3 +82,11 @@ Combining all together can look like
 ```
 $ docker run --name progtest -td -p 2222:22 -v <HOST_OS_LOCATION>/data:/root/data jmeinlschmidt/progtest:latest <SSH_USERNAME> <SSH_PASSWORD>
 ```
+
+## Vim
+
+`vim` is displaying white-space characters by default.
+
+In order to disable
+- temporarily by executing `:set nolist`
+- or permanently by uncommenting `"set nolist` in `~/.vimrc`

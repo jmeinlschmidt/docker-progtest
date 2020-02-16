@@ -25,6 +25,7 @@ RUN apt-get update &&\
 
 COPY config/ssh_config /etc/ssh/ssh_config
 COPY config/sshd_config /etc/ssh/sshd_config
+COPY config/vimconfig /etc/vim/vimrc.local
 
 COPY config/entrypoint.sh /usr/local/bin/entrypoint.sh
 

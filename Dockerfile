@@ -16,6 +16,8 @@ RUN apt-get update &&\
         nano \
         less \
         gdb \
+        wget \
+        ca-certificates \
         openssh-server \
         file \
         valgrind -y &&\

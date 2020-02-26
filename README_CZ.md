@@ -104,9 +104,9 @@ Způsob, jak přistupovat do containeru s pomocí SSH.
 $ ssh <USERNAME>@localhost -p 2222
 ```
 
-## Ostatní výhody
+# Ostatní výhody
 
-# Vim
+## Vim
 
 `vim` implicitně zobrazuje i bílé znaky.
 

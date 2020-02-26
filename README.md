@@ -105,9 +105,9 @@ The propper way to SSH into the container is
 $ ssh <USERNAME>@localhost -p 2222
 ```
 
-## Miscellaneous features
+# Miscellaneous features
 
-# Vim
+## Vim
 
 `vim` is displaying white-space characters by default.
 

@@ -12,6 +12,7 @@ RUN apt-get update &&\
         sudo \
         curl \
         man \
+        rsync \
         vim \
         nano \
         less \
@@ -22,6 +23,14 @@ RUN apt-get update &&\
         file \
         valgrind -y &&\
     apt-get update
+
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.15.7/cmake-3.15.7.tar.gz -P /tmp &&\
+    cd /tmp &&\
+    tar -xzvf cmake-3.15.7.tar.gz &&\
+    cd /tmp/cmake-3.15.7 &&\
+    ./bootstrap &&\
+    make &&\
+    make install
 
 COPY config/ssh_config /etc/ssh/ssh_config
 COPY config/sshd_config /etc/ssh/sshd_config

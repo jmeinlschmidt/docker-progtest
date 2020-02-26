@@ -13,3 +13,5 @@ https://code.visualstudio.com/docs/remote/containers
 Terminál je k dispozici již ve výchozím stavu a nevyžaduje konfiguraci.
 
 V tuto chvíli by měl již být vzdálený vývoj plně funkční. Jakékoliv komplikace prosím hlaste do issues na gitu.
+
+![screenshot](https://raw.githubusercontent.com/jmeinlschmidt/docker-progtest/master/doc/image-vscode-1.png "Screenshot")

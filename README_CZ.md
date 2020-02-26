@@ -1,6 +1,6 @@
 # Docker Progtest
 
-### See translations! [[CZ](https://google.com/), [EN](https://google.com/), [RU](https://google.com/)]
+### See translations! [[CZ](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README_CZ.md), [EN](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README.md), [RU](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README_RU.md)]
 
 Docker image poskytující stabilní prostředí, které se velmi podobá prostředí progtestu. Image je určena pro studenty **Fakulty informačních technologií** při Českém vysokém učení technickém v Praze.
 
@@ -74,8 +74,8 @@ Pro více manipulací s Dockerem doporučuji dokumentaci a basic tutoriály.
 
 ## Příklady použití
 
-✅ [Vývoj v CLion](http://google.com/) \
-✅ [Vývoj ve VSCode](http://google.com/)
+✅ [Vývoj v CLion](https://github.com/jmeinlschmidt/docker-progtest/blob/master/doc/cz/clion_setup.md) \
+✅ [Vývoj ve VSCode](https://github.com/jmeinlschmidt/docker-progtest/blob/master/doc/cz/vscode_setup.md)
 
 ## Volitelné: Nastavení SSH
 

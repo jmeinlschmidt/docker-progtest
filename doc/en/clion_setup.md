@@ -2,7 +2,7 @@
 
 https://www.jetbrains.com/help/clion/remote-projects-support.html
 
-## Setting up the remote development in v CLion
+## Setting up the remote development in CLion
 
 1. Navigate to **Settings / Preferences | Build, Execution, Deployment | Toolchains**, from the list of toolchains or click plus icon and select Remote Host from the drop-down menu to create a new toolchain.
 

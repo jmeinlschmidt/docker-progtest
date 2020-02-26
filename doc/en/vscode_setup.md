@@ -13,3 +13,5 @@ https://code.visualstudio.com/docs/remote/containers
 After installing just hit Remote explorer in the sidebar menu and attaching to running container.
 
 Everything is set up. Please report any issues in the git repository.
+
+![screenshot](https://raw.githubusercontent.com/jmeinlschmidt/docker-progtest/master/doc/image-vscode-1.png "Screenshot")

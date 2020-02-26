@@ -10,7 +10,7 @@ Image také řeší časté problémy, především zaznamenávané na **macOS**
 
 ## Co je uvnitř
 
-Splňuje doporučené programy v předmětech **BI-PA1 a BI-PA2**
+Splňuje požadavky v předmětech **BI-PA1 a BI-PA2**
 
 ✅ postavena na OS debian \
 ✅ gcc kompilátor \

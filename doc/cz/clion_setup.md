@@ -18,6 +18,8 @@ https://www.jetbrains.com/help/clion/remote-projects-support.html
     - C Compiler `/usr/bin/gcc`
     - C++ Compiler `/usr/bin/g++`
     - Debugger `/usr/bin/gdb`
+    
+![screenshot](https://raw.githubusercontent.com/jmeinlschmidt/docker-progtest/master/doc/image-clion-1.png "Screenshot")
 
 4. Pomocí šipek nad seznamem existujících Toolchain nastavte Remote Host jako default (tj. přesuňte jej v seznamu úplně nahoru)
 

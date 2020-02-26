@@ -8,9 +8,7 @@ https://code.visualstudio.com/docs/remote/containers
 
 2. Recommended: **Docker extension** (for managing container via GUI, not console)
 
-3. Po instalaci zvolte *Remote explorer* postranním menu a připojte se k běžícímu containeru
-
-After installing just hit Remote explorer in the sidebar menu and attaching to running container.
+3. After installing, just hit *Remote explorer* in the sidebar menu and attach to the running container.
 
 Everything is set up. Please report any issues in the git repository.
 

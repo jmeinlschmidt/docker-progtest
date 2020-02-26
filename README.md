@@ -1,6 +1,6 @@
 # About Docker Progtest
 
-### See other translations! [[CZ](https://google.com/), [EN](https://google.com/), [RU](https://google.com/)]
+### See translations! [[CZ](https://google.com/), [EN](https://google.com/), [RU](https://google.com/)]
 
 Docker image providing environment for stable development. Designed for students of **Faculty of Information Technology**, Czech Technical University in Prague.
 
@@ -107,7 +107,7 @@ $ ssh <USERNAME>@localhost -p 2222
 
 ## Miscellaneous features
 
-## Vim
+# Vim
 
 `vim` is displaying white-space characters by default.
 

@@ -1,6 +1,6 @@
 # Docker Progtest
 
-### See other translations! [[CZ](https://google.com/), [EN](https://google.com/), [RU](https://google.com/)]
+### See translations! [[CZ](https://google.com/), [EN](https://google.com/), [RU](https://google.com/)]
 
 Docker image poskytující stabilní prostředí, které se velmi podobá prostředí progtestu. Image je určena pro studenty **Fakulty informačních technologií** při Českém vysokém učení technickém v Praze.
 
@@ -106,7 +106,7 @@ $ ssh <USERNAME>@localhost -p 2222
 
 ## Ostatní výhody
 
-## Vim
+# Vim
 
 `vim` implicitně zobrazuje i bílé znaky.
 

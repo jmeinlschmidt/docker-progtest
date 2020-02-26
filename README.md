@@ -1,87 +1,111 @@
 # About Docker Progtest
-Docker image with FIT CTU Progtest environment. Solving issues for MacOS or Windows users.
 
-Similiar to WSL in Windows system.
+### See other translations! [[CZ](https://google.com/), [EN](https://google.com/), [RU](https://google.com/)]
+
+Docker image providing environment for stable development. Designed for students of **Faculty of Information Technology**, Czech Technical University in Prague.
+
+This image is not an official tool provided by university and is maintained by students. In order to match official tools, see according course page at courses.fit.cvut.cz, for further information.
+
+Image should solve common issues, experienced by **macOS** or Windows users. Similiar to WSL in Windows system. Performance should be similiar. After all, this image comes pre-configured and is ready to use.
 
 ## What's inside
 
-Inside are recommended tools as mentioned in **BI-PA1 and BI-PA2** official specifications.
+Matches all recommended tools as mentioned in **BI-PA1 and BI-PA2** specifications.
 
 ✅ debian \
 ✅ gcc compiler \
 ✅ valgrind \
 ✅ gdb
 
-Also including tools such as (vim, nano, man, sudo, curl etc.) used in **BI-PS1**.
+and many others.
 
-# How to use this image
+Also including tools such as vim, nano, man, sudo, curl etc. and is ready to be used in **BI-PS1**, especially recommended for macOS users since some programs (such as grep) may differ.
 
-Run the image using the following command
+# How to use the image
+
+## Get Docker!
+
+Tutorial comming soon.
+
+Now you are on your own but **you can do it**! See the documentation here. https://docs.docker.com/docker-for-windows/install/
+
+## Running the image
+
+Replace the `<HOST_OS_LOCATION>` with whatever destination you want. This folder will by accessible from both your host computer and the Docker container.
+
+**NOTE: Initial run may take up to 15 minutes** (it's needed to build custom cmake build. **Will be fixed soon**).
 
 ```
-$ docker run --name progtest -td jmeinlschmidt/progtest:latest
+$ docker run --name progtest -td \
+    -v <HOST_OS_LOCATION>:/home/user/data \
+    -p 2222:22 \
+    jmeinlschmidt/progtest:latest
 ```
 
-Attaching console to the container
+And that's all folks! Make sure the container is running properly.
+
+```
+$ docker ps
+```
+
+Get into the container.
 
 ```
 $ docker exec -it progtest /bin/bash
 ```
 
-## Mounting volumes
+In order to get out of it, just type `exit`.
 
-Keep on mind host os permissions (especially in MacOS).
+Now you're in! Navigate to `/home/user/data` and feel free to fight progtest. Remember, this folder is also accessible from your host OS.
 
-```
-$ docker run --name progtest -td -v <HOST_OS_LOCATION>/data:/root/data jmeinlschmidt/progtest:latest
-```
-
-Usage of argument `-v` is
+Once the container has been created. You can repeatedly start it by using.
 
 ```
--v <HOST_OS_LOCATION>:<VIRTUAL_OS_LOCATION>
+$ docker start progtest
 ```
 
-## Using with Microsoft VS Code
+Or gently stop it.
 
-VS Code natively supports Docker containers. See the [link](https://code.visualstudio.com/docs/remote/containers) for further information.
+```
+$ docker stop progtest
+```
 
-Requirements:
+For further information, see some Basic Docker tutorials.
 
-- Install offcial VS Code extension [Remote Development extension pack](https://aka.ms/vscode-remote/download/extension)
-- Optional - Docker extension (for managing container via GUI, not console)
+## Using the image
 
-After installing just hit *Remote explorer* in the sidebar menu and attaching to running container.
+✅ [CLion development](http://google.com/) \
+✅ [VSCode development](http://google.com/)
 
-![Example of attached VS Code environment](https://github.com/jmeinlschmidt/docker-progtest/blob/master/image-vscode-1.png)
+## Optional: Configuring SSH
 
-The terminal is working natively as well.
-
-## Optional: Attach the container using SSH
-
-When using docker, the recommended way to connect in to the container is to use `exec` command as mentioned before.
+When using docker, the recommended way to connect into the container is to use `exec` command as mentioned before.
 
 However, connecting via SSH has been added in order to let you configure your favourite IDE to join directly into the container as it is the most universal way.
 
+Default configuration is:
+- username `user`
+- password `1234`
+
+To change this credentials, you can modify the `run` command to something like
+
 ```
-$ docker run --name progtest -td -p 2222:22 jmeinlschmidt/progtest:latest <SSH_USERNAME> <SSH_PASSWORD>
+$ docker run --name progtest -td \
+    -v <HOST_OS_LOCATION>:/home/<SSH_USERNAME>/data \
+    -p 2222:22 \
+    jmeinlschmidt/progtest:latest
+    <SSH_USERNAME> <SSH_PASSWORD>
 ```
 
-If no `<SSH_USERNAME>` or `<SSH_PASSWORD>` is provided, following credentials will be used:
+The init script will create custom user for you.
 
-- `user` and the password `1234`.
-
-When using MacOS, the propper way to SSH into the container is
+The propper way to SSH into the container is
 
 ```
 $ ssh <USERNAME>@localhost -p 2222
 ```
 
-Combining all together can look like
-
-```
-$ docker run --name progtest -td -p 2222:22 -v <HOST_OS_LOCATION>/data:/root/data jmeinlschmidt/progtest:latest <SSH_USERNAME> <SSH_PASSWORD>
-```
+## Miscellaneous features
 
 ## Vim
 
@@ -90,3 +114,5 @@ $ docker run --name progtest -td -p 2222:22 -v <HOST_OS_LOCATION>/data:/root/dat
 In order to disable
 - temporarily by executing `:set nolist`
 - or permanently by uncommenting `"set nolist` in `~/.vimrc`
+
+

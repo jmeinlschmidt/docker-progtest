@@ -11,6 +11,8 @@ https://www.jetbrains.com/help/clion/remote-projects-support.html
     - implicitně `user/1234`
     - adresa `localhost`
     - port `2222`
+    
+![screenshot 1](https://raw.githubusercontent.com/jmeinlschmidt/docker-progtest/master/doc/image-clion-2.png "Screenshot 1")
 
 3. Po úspěšném připojení vyplňte následující položky
     - CMake `/usr/local/bin/cmake`
@@ -19,7 +21,7 @@ https://www.jetbrains.com/help/clion/remote-projects-support.html
     - C++ Compiler `/usr/bin/g++`
     - Debugger `/usr/bin/gdb`
     
-![screenshot](https://raw.githubusercontent.com/jmeinlschmidt/docker-progtest/master/doc/image-clion-1.png "Screenshot")
+![screenshot 2](https://raw.githubusercontent.com/jmeinlschmidt/docker-progtest/master/doc/image-clion-1.png "Screenshot 2")
 
 4. Pomocí šipek nad seznamem existujících Toolchain nastavte Remote Host jako default (tj. přesuňte jej v seznamu úplně nahoru)
 

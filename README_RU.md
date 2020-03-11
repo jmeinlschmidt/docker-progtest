@@ -1,1 +1,0 @@
-# Feel free to translate this file and create a pull-request!

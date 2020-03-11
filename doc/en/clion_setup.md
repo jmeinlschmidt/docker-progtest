@@ -35,3 +35,5 @@ Everything is set up. Please report any issues in the git repository.
     - see https://github.com/jmeinlschmidt/docker-progtest/issues/6
     - **Cause**: New container has been created but it's SSH key is different
     - Manually delete `localhost:2222` in `~/.ssh/known_hosts`
+3. Clion debug fails, cannot access file ...
+    - same as above

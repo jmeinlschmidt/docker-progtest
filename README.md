@@ -1,6 +1,6 @@
 # About Docker Progtest
 
-### See translations! [[CZ](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README_CZ.md), [EN](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README.md), [RU](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README_RU.md)]
+### See translations! [[CZ](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README_CZ.md), [EN](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README.md)]
 
 Docker image providing environment for stable development. Designed for students of **Faculty of Information Technology**, Czech Technical University in Prague.
 
@@ -13,7 +13,7 @@ Image should solve common issues, experienced by **macOS** or Windows users. Sim
 Matches all recommended tools as mentioned in **BI-PA1 and BI-PA2** specifications.
 
 ✅ debian \
-✅ gcc compiler \
+✅ gcc \
 ✅ valgrind \
 ✅ gdb
 
@@ -39,6 +39,8 @@ Replace the `<HOST_OS_LOCATION>` with whatever destination you want. This folder
 $ docker run --name progtest -td \
     -v <HOST_OS_LOCATION>:/home/user/data \
     -p 2222:22 \
+    -p 2000:2000 \
+    --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
     jmeinlschmidt/progtest:latest
 ```
 
@@ -93,6 +95,8 @@ To change this credentials, you can modify the `run` command to something like
 $ docker run --name progtest -td \
     -v <HOST_OS_LOCATION>:/home/<SSH_USERNAME>/data \
     -p 2222:22 \
+    -p 2000:2000 \
+    --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
     jmeinlschmidt/progtest:latest
     <SSH_USERNAME> <SSH_PASSWORD>
 ```
@@ -107,6 +111,14 @@ $ ssh <USERNAME>@localhost -p 2222
 
 # Miscellaneous features
 
+## Aliases
+```bash
+alias g="gcc -Wall -pedantic -g -o a.out"
+alias gf="gcc -Wall -pedantic -g -fsanitize=address -o a.out"
+alias gg="g++ -Wall -pedantic -std=c++14 -g -o a.out"
+alias ggf="g++ -Wall -pedantic -std=c++14 -g -fsanitize=address -o a.out"
+```
+
 ## Vim
 
 `vim` is displaying white-space characters by default.
@@ -114,5 +126,3 @@ $ ssh <USERNAME>@localhost -p 2222
 In order to disable
 - temporarily by executing `:set nolist`
 - or permanently by uncommenting `"set nolist` in `~/.vimrc`
-
-

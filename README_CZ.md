@@ -1,6 +1,6 @@
 # Docker Progtest
 
-### See translations! [[CZ](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README_CZ.md), [EN](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README.md), [RU](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README_RU.md)]
+### See translations! [[CZ](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README_CZ.md), [EN](https://github.com/jmeinlschmidt/docker-progtest/blob/master/README.md)]
 
 Docker image poskytující stabilní prostředí, které se velmi podobá prostředí progtestu. Image je určena pro studenty **Fakulty informačních technologií** při Českém vysokém učení technickém v Praze.
 
@@ -12,8 +12,8 @@ Image také řeší časté problémy, především zaznamenávané na **macOS**
 
 Splňuje požadavky v předmětech **BI-PA1 a BI-PA2**
 
-✅ postavena na OS debian \
-✅ gcc kompilátor \
+✅ debian \
+✅ gcc \
 ✅ valgrind \
 ✅ gdb
 
@@ -39,6 +39,8 @@ UPOZORNĚNÍ: První spuštění může zabrat kolem 15 minut. (během spuštěn
 $ docker run --name progtest -td \
     -v <HOST_OS_LOCATION>:/home/user/data \
     -p 2222:22 \
+    -p 2000:2000 \
+    --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
     jmeinlschmidt/progtest:latest
 ```
 
@@ -93,6 +95,8 @@ Toto nastavení je mimo jiné možné změnit při prvním spuštění.
 $ docker run --name progtest -td \
     -v <HOST_OS_LOCATION>:/home/<SSH_USERNAME>/data \
     -p 2222:22 \
+    -p 2000:2000 \
+    --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
     jmeinlschmidt/progtest:latest
     <SSH_USERNAME> <SSH_PASSWORD>
 ```

@@ -133,3 +133,5 @@ git ll = "log --oneline --graph --all --decorate"
 In order to disable
 - temporarily by executing `:set nolist` (re-enable by using `:set list`)
 - or permanently by uncommenting `"set nolist` in `~/.vimrc`
+
+![vim setlist](https://raw.githubusercontent.com/jmeinlschmidt/docker-progtest/master/doc/image-vim-setlist.png "vim selist example")

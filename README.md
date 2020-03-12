@@ -33,8 +33,6 @@ Now you are on your own but **you can do it**! See the documentation here. https
 
 Replace the `<HOST_OS_LOCATION>` with whatever destination you want. This folder will by accessible from both your host computer and the Docker container.
 
-**NOTE: Initial run may take up to 15 minutes** (it's necessary to build custom cmake build. **Will be fixed soon**).
-
 ```
 $ docker run --name progtest -td \
     -v <HOST_OS_LOCATION>:/home/user/data \

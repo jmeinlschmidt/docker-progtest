@@ -110,11 +110,20 @@ $ ssh <USERNAME>@localhost -p 2222
 # Miscellaneous features
 
 ## Aliases
+
+Some pre-configured aliases.
+
 ```bash
-alias g="gcc -Wall -pedantic -g -o a.out"
-alias gf="gcc -Wall -pedantic -g -fsanitize=address -o a.out"
-alias gg="g++ -Wall -pedantic -std=c++14 -g -o a.out"
-alias ggf="g++ -Wall -pedantic -std=c++14 -g -fsanitize=address -o a.out"
+g = "gcc -Wall -pedantic -g -o a.out"
+gf = "gcc -Wall -pedantic -g -fsanitize=address -o a.out"
+gg = "g++ -Wall -pedantic -std=c++14 -g -o a.out"
+ggf = "g++ -Wall -pedantic -std=c++14 -g -fsanitize=address -o a.out"
+```
+
+For git
+
+```bash
+git ll = "log --oneline --graph --all --decorate"
 ```
 
 ## Vim

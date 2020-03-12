@@ -33,8 +33,6 @@ Jste v tom sami, ale **to zvládnete**! Návod i s krásnými obrázky je v doku
 
 Nahradtě `<HOST_OS_LOCATION>` jakýmkoliv umístěním na hostitelském počítači. Složka poté bude přístupná z fyzického i virtuálního počítače.
 
-UPOZORNĚNÍ: První spuštění může zabrat kolem 15 minut. (během spuštění dochází ke kompilaci vlastního cmake, **brzy bude opraveno**)
-
 ```
 $ docker run --name progtest -td \
     -v <HOST_OS_LOCATION>:/home/user/data \
@@ -110,12 +108,29 @@ $ ssh <USERNAME>@localhost -p 2222
 
 # Ostatní výhody
 
+## Aliasy
+
+Před-konfigurované aliasy.
+
+```bash
+g = "gcc -Wall -pedantic -g -o a.out"
+gf = "gcc -Wall -pedantic -g -fsanitize=address -o a.out"
+gg = "g++ -Wall -pedantic -std=c++14 -g -o a.out"
+ggf = "g++ -Wall -pedantic -std=c++14 -g -fsanitize=address -o a.out"
+```
+
+Git (z předmětu BI-GIT)
+
+```bash
+git ll = "log --oneline --graph --all --decorate"
+```
+
 ## Vim
 
 `vim` implicitně zobrazuje i bílé znaky.
 
 Jak vypnout?
-- dočasně (pro daný soubor) `:set nolist`
+- dočasně (pro daný soubor) `:set nolist` (znovu spustit lze `:set list`)
 - trvale, zrušením komentáře `"set nolist` v souboru `~/.vimrc`
 
 

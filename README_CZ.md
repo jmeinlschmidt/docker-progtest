@@ -133,4 +133,4 @@ Jak vypnout?
 - dočasně (pro daný soubor) `:set nolist` (znovu spustit lze `:set list`)
 - trvale, zrušením komentáře `"set nolist` v souboru `~/.vimrc`
 
-
+![vim setlist](https://raw.githubusercontent.com/jmeinlschmidt/docker-progtest/master/doc/image-vim-setlist.png "vim selist example")

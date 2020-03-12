@@ -33,8 +33,6 @@ Now you are on your own but **you can do it**! See the documentation here. https
 
 Replace the `<HOST_OS_LOCATION>` with whatever destination you want. This folder will by accessible from both your host computer and the Docker container.
 
-**NOTE: Initial run may take up to 15 minutes** (it's necessary to build custom cmake build. **Will be fixed soon**).
-
 ```
 $ docker run --name progtest -td \
     -v <HOST_OS_LOCATION>:/home/user/data \
@@ -112,11 +110,20 @@ $ ssh <USERNAME>@localhost -p 2222
 # Miscellaneous features
 
 ## Aliases
+
+Some pre-configured aliases.
+
 ```bash
-alias g="gcc -Wall -pedantic -g -o a.out"
-alias gf="gcc -Wall -pedantic -g -fsanitize=address -o a.out"
-alias gg="g++ -Wall -pedantic -std=c++14 -g -o a.out"
-alias ggf="g++ -Wall -pedantic -std=c++14 -g -fsanitize=address -o a.out"
+g = "gcc -Wall -pedantic -g -o a.out"
+gf = "gcc -Wall -pedantic -g -fsanitize=address -o a.out"
+gg = "g++ -Wall -pedantic -std=c++14 -g -o a.out"
+ggf = "g++ -Wall -pedantic -std=c++14 -g -fsanitize=address -o a.out"
+```
+
+For git
+
+```bash
+git ll = "log --oneline --graph --all --decorate"
 ```
 
 ## Vim
@@ -124,5 +131,5 @@ alias ggf="g++ -Wall -pedantic -std=c++14 -g -fsanitize=address -o a.out"
 `vim` is displaying white-space characters by default.
 
 In order to disable
-- temporarily by executing `:set nolist`
+- temporarily by executing `:set nolist` (re-enable by using `:set list`)
 - or permanently by uncommenting `"set nolist` in `~/.vimrc`

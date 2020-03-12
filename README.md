@@ -124,5 +124,5 @@ alias ggf="g++ -Wall -pedantic -std=c++14 -g -fsanitize=address -o a.out"
 `vim` is displaying white-space characters by default.
 
 In order to disable
-- temporarily by executing `:set nolist`
+- temporarily by executing `:set nolist` (re-enable using `:set list`)
 - or permanently by uncommenting `"set nolist` in `~/.vimrc`

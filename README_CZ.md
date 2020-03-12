@@ -58,7 +58,7 @@ Pro vystoupení použijte jednoduše `exit`.
 
 Přejděte do `/home/user/data` a užijte si dlouhé noci s progtestem. Nezapomeňte, že složka je přístupná i z hostitelského počítače.
 
-Nyní již můžete container spouštět následujícím způsobem (tentokrát již nezabere 15 minut).
+Nyní již můžete container spouštět následujícím způsobem.
 
 ```
 $ docker start progtest

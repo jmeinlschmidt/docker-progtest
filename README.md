@@ -131,5 +131,5 @@ git ll = "log --oneline --graph --all --decorate"
 `vim` is displaying white-space characters by default.
 
 In order to disable
-- temporarily by executing `:set nolist` (re-enable using `:set list`)
+- temporarily by executing `:set nolist` (re-enable by using `:set list`)
 - or permanently by uncommenting `"set nolist` in `~/.vimrc`

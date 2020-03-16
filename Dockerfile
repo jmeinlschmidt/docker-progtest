@@ -1,88 +1,20 @@
-FROM debian:latest
+FROM gitlab.fit.cvut.cz:5000/bi-pa2/virtual-machine/pa2vm:latest
+
+USER root
 
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 
-COPY config/gitconfig /etc/gitconfig
-COPY config/profile.sh /etc/profile.d/profile.sh
-COPY config/profile.sh /root/.bashrc
-COPY config/profile.sh /root/.bash_profile
-
-RUN apt-get update &&\
-    apt-get install -y --no-install-recommends build-essential \
-        acl \
-        aptitude \
-        bc \
-        bzip2 \
+RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
-        clang \
         curl \
-        doxygen \
         file \
-        gcc \
         git \
-        g++ \
-        gdb \
         gdbserver \
-        hexedit \
-        joe \
-        less \
-        lsof \
-        lzma \
-        lzop \
-        make \
-        mc \
         man \
         nano \
-        openssl \
-        openssh-server \
-        openssh-client \
-        patch \
-        pmccabe \
-        psmisc \
-        rsync \
         sudo \
-        screen \
-        splint \
-        sqlite3 \
-        strace \
-        unzip \
-        valgrind -y \
-        vim \
-        wget \
-        zip \
-        zstd \
-        libncurses-dev \
-        libsdl2-dev \
-        libsdl2-gfx-dev \
-        libsdl2-image-dev \
-        libsdl2-mixer-dev \
-        libsdl2-net-dev \
-        libsdl2-ttf-dev \
-        libgl-dev  \
-        libglu-dev \
-        freeglut3-dev \
-        libssl-dev \
-        zlib1g-dev \
-        libmariadbclient-dev \
-        libpq-dev \
-        libsqlite3-dev \
-        libxml2-dev \
-        libpng-dev \
-        libjpeg-dev \
-        libexif-dev \
-        libexiv2-dev \
-        libmediainfo-dev 
-
-COPY config/ssh_config /etc/ssh/ssh_config
-COPY config/sshd_config /etc/ssh/sshd_config
-COPY config/vimconfig /etc/vim/vimrc.local
-
-COPY config/entrypoint.sh /usr/local/bin/entrypoint.sh
-
-RUN chmod +x /usr/local/bin/entrypoint.sh
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-CMD ["user", "1234"];
+        vim
 
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.15.7/cmake-3.15.7.tar.gz -P /tmp &&\
     cd /tmp &&\
@@ -91,3 +23,19 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.15.7/cmake-3.15.7
     ./bootstrap &&\
     make &&\
     make install
+
+COPY config/user.sh /tmp/user.sh
+RUN chmod a+x /tmp/user.sh && /tmp/user.sh
+
+COPY config/gitconfig /etc/gitconfig
+COPY config/ssh_config /etc/ssh/ssh_config
+COPY config/sshd_config /etc/ssh/sshd_config
+COPY config/vimconfig /etc/vim/vimrc.local
+
+COPY config/profile.sh /root/.bashrc
+RUN echo "\"set nolist" >/root/.vimrc
+
+USER progtest
+
+RUN echo "\"set nolist" >/home/progtest/.vimrc
+COPY config/profile.sh /home/progtest/.bashrc

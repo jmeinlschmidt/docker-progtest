@@ -102,7 +102,7 @@ ggf = "g++ -Wall -pedantic -std=c++14 -g -fsanitize=address -o a.out"
 For git
 
 ```bash
-git ll = "log --oneline --graph --all --decorate"
+git ll = "git log --oneline --graph --all --decorate"
 ```
 
 ## Vim

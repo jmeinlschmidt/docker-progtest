@@ -8,7 +8,7 @@ https://www.jetbrains.com/help/clion/remote-projects-support.html
 
 2. Click ⚙️ next to the Credentials field. In the dialog that opens, provide the credentials for accessing you remote machine
     - SSH credentials you specified in `docker run`
-    - default `user/1234`
+    - default `progtest/1234`
     - address `localhost`
     - port `2222`
     

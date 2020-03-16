@@ -8,3 +8,9 @@ service ssh status
 
 # Prevent host system to stop docker if no action is provided
 tail -f /dev/null
+
+su - progtest
+
+echo "\"set nolist" >/home/progtest/.vimrc
+
+$@

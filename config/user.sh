@@ -4,6 +4,7 @@ set -e
 printf "\n\033[0;44m---> Creating SSH user.\033[0m\n"
 
 usermod -a -G ssh progtest
+usermod -a -G sudo progtest
 echo "progtest:1234" | chpasswd
 echo 'PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin"' >> /home/progtest/.profile
 

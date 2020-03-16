@@ -8,7 +8,7 @@ https://www.jetbrains.com/help/clion/remote-projects-support.html
 
 2. Po přidání zvolte ikonu ⚙️ u možnosti připojení a vyplňte přihlašovací údaje SSH
     - SSH údaje jste volili u prvotního `docker run`
-    - implicitně `user/1234`
+    - implicitně `progtest/1234`
     - adresa `localhost`
     - port `2222`
     

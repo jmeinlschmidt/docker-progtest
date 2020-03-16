@@ -6,28 +6,21 @@ Docker image providing environment for stable development. Designed for students
 
 This image is not an official tool provided by university and is maintained by students. In order to match official tools, see according course page at courses.fit.cvut.cz, for further information.
 
-Image should solve common issues, experienced by **macOS** or Windows users. Similiar to WSL in Windows system. Performance should be similiar. After all, this image comes pre-configured and is ready to use.
+# General purpose
 
-## What's inside
+Image inherits directly from faculty official image but introduces more features and is primarily focused on **development**. The goal is to provide stable environment based on official requirements without needing to use heavier virtualisation software such as VirtualBox or even install Linux on your computer.
 
-Matches all recommended tools as mentioned in **BI-PA1 and BI-PA2** specifications.
+All of the required tools (even needed in BI-PS1) are located within one container. It is possible to easily connect **VSCode, CLion or any other IDE** remotely to running Docker container. So there are no modifications needed on your host computer.
 
-✅ debian \
-✅ gcc \
-✅ valgrind \
-✅ gdb
+Image should also solve common issues, experienced by **macOS** or Windows users. Similiar to WSL in Windows system. Performance should be similiar. After all, this image comes pre-configured and is ready to use. Docker has been chosen due to its universality.
 
-and many others.
+Meets requirements in classes **BI-PA1, BI-PA2 and BI-PS1**.
 
-Also including tools such as vim, nano, man, sudo, curl etc. and is ready to be used in **BI-PS1**, especially recommended for macOS users since some programs (such as grep) may differ.
-
-# How to use the image
+# Installation
 
 ## Get Docker!
 
-Tutorial comming soon.
-
-Now you are on your own but **you can do it**! See the documentation here. https://docs.docker.com/docker-for-windows/install/
+Tutorial comming soon. Now you are on your own but **you can do it**! See the documentation here. https://docs.docker.com/docker-for-windows/install/
 
 ## Running the image
 
@@ -35,7 +28,7 @@ Replace the `<HOST_OS_LOCATION>` with whatever destination you want. This folder
 
 ```
 $ docker run --name progtest -td \
-    -v <HOST_OS_LOCATION>:/home/user/data \
+    -v <HOST_OS_LOCATION>:/home/progtest/data \
     -p 2222:22 \
     -p 2000:2000 \
     --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
@@ -56,7 +49,7 @@ $ docker exec -it progtest /bin/bash
 
 In order to get out of it, just type `exit`.
 
-Now you're in! Navigate to `/home/user/data` and feel free to fight progtest. Remember, this folder is also accessible from your host OS.
+Now you're in! Navigate to `/home/progtest/data` and feel free to fight progtest. Remember, this folder is also accessible from your host OS.
 
 Once the container has been created. You can repeatedly start it by using.
 
@@ -77,34 +70,20 @@ For further information, see some Basic Docker tutorials.
 ✅ [CLion development](https://github.com/jmeinlschmidt/docker-progtest/blob/master/doc/en/clion_setup.md) \
 ✅ [VSCode development](https://github.com/jmeinlschmidt/docker-progtest/blob/master/doc/en/vscode_setup.md)
 
-## Optional: Configuring SSH
+## Login via SSH
 
 When using docker, the recommended way to connect into the container is to use `exec` command as mentioned before.
 
 However, connecting via SSH has been added in order to let you configure your favourite IDE to join directly into the container as it is the most universal way.
 
 Default configuration is:
-- username `user`
+- username `progtest`
 - password `1234`
 
-To change this credentials, you can modify the `run` command to something like
+Propper way to SSH into the container is
 
 ```
-$ docker run --name progtest -td \
-    -v <HOST_OS_LOCATION>:/home/<SSH_USERNAME>/data \
-    -p 2222:22 \
-    -p 2000:2000 \
-    --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
-    jmeinlschmidt/progtest:latest
-    <SSH_USERNAME> <SSH_PASSWORD>
-```
-
-The init script will create custom user for you.
-
-The propper way to SSH into the container is
-
-```
-$ ssh <USERNAME>@localhost -p 2222
+$ ssh progtest@localhost -p 2222
 ```
 
 # Miscellaneous features
@@ -123,7 +102,7 @@ ggf = "g++ -Wall -pedantic -std=c++14 -g -fsanitize=address -o a.out"
 For git
 
 ```bash
-git ll = "log --oneline --graph --all --decorate"
+git ll = "git log --oneline --graph --all --decorate"
 ```
 
 ## Vim
@@ -135,3 +114,11 @@ In order to disable
 - or permanently by uncommenting `"set nolist` in `~/.vimrc`
 
 ![vim setlist](https://raw.githubusercontent.com/jmeinlschmidt/docker-progtest/master/doc/image-vim-setlist.png "vim selist example")
+
+## Root
+
+Default account is `progtest` and is able to launch `sudo`. However, if you need to access the container as a root user anyway, it can be done via
+
+```
+$ docker exec -it -u 0 progtest /bin/bash
+```

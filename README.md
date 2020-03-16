@@ -6,7 +6,7 @@ Docker image providing environment for stable development. Designed for students
 
 This image is not an official tool provided by university and is maintained by students. In order to match official tools, see according course page at courses.fit.cvut.cz, for further information.
 
-# General purpose
+## General purpose
 
 Image inherits directly from faculty official image but introduces more features and is primarily focused on **development**. The goal is to provide stable environment based on official requirements without needing to use heavier virtualisation software such as VirtualBox or even install Linux on your computer.
 

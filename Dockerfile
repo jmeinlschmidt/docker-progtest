@@ -35,6 +35,10 @@ COPY config/vimconfig /etc/vim/vimrc.local
 COPY config/profile.sh /root/.bashrc
 RUN echo "\"set nolist" >/root/.vimrc
 
+COPY config/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
 USER progtest
 
 RUN echo "\"set nolist" >/home/progtest/.vimrc
